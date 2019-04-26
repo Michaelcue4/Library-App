@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 app.set('view engine', 'hbs')
 
-app.get('/',(req,res)=>{
+app.get('/', (req,res)=>{
     res.send("Helllo");
 })
 
@@ -27,6 +27,6 @@ app.get('/Library', (req, res) => {
 
 //============Listenter=====================
 const port = process.env.PORT||3000
-app.listen(port, function(){
+app.listen(port,"0.0.0.0", function(){
     console.log("Is working")
 })
