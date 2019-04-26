@@ -4,7 +4,8 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const logger = require('morgan')
-const routes = require('./routes/index')
+const mainUserApi = require('./api/mainUser.js')
+
 
 //============Middleware================
 
@@ -13,14 +14,17 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 app.set('view engine', 'hbs')
 
+app.get('/',(req,res)=>{
+    res.send("Helllo");
+})
 
+app.get('/Library', (req, res) => {
+    mainuser.()
+      .then(users => {
+        res.render("users/users", { listOUsers: users })
+      });
+  });
 
-
-
-
-
-
-app.use('/', routes)
 //============Listenter=====================
 const port = process.env.PORT||3000
 app.listen(port, function(){
