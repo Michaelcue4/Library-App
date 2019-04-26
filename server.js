@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/Library', (req, res) => {
-    mainuser.()
+    mainuser.getAllLibraryUsers()
       .then(users => {
         res.render("users/users", { listOUsers: users })
       });
