@@ -8,7 +8,7 @@ const LibrarySchema = mongoose.Schema({
     userId: ObjectId
 })
 
-let LibraryCollection = mongoose.model("Account",LibrarySchema);
+let LibraryCollection = mongoose.model("Library Account",LibrarySchema);
 
 function CreateLibraryAccounts(newLibraryAccount,userId){
     newLibraryAccount.userId = userId;
