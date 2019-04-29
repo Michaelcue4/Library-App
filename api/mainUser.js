@@ -3,8 +3,8 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const LibrarySchema = mongoose.Schema({
     name: String,
-    bookName: String,
-    gameName: String,
+    BooksRented: Number,
+    MoviesRented: Number,
     userId: ObjectId
 })
 
