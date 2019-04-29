@@ -4,7 +4,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const LibrarySchema = mongoose.Schema({
     name: String,
     BooksRented: Number,
-    MoviesRented: Number,
+    isActive: Boolean,
     userId: ObjectId
 })
 
@@ -17,7 +17,9 @@ function CreateLibraryAccounts(newLibraryAccount,userId){
 function getLibraryAccountsByUserId(uId) {
     return LibraryCollection.find({ userId: uId});
   }
+
   module.exports = {
       CreateLibraryAccounts,
-      getLibraryAccountsByUserId
+      getLibraryAccountsByUserId,
+      
   }
