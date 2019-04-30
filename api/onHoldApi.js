@@ -1,5 +1,12 @@
 const mongoose = require('../db/connection.js');
-const ObjectId = mongoose.Schema.Types.ObjectId;
-
-const BookSchema = mongoose.Schema({
+const Schema = mongoose.Schema
+//////////////////////////////////////
+const onHold = new Schema({
+    books: [{
+        bookName: String,
+        bookAuthor: String,
+        genre: String
+    }],
 })
+/////////////////////////////////////////
+module.exports = mongoose.model('onHoldApi',onHold);

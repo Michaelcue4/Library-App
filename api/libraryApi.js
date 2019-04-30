@@ -1,29 +1,14 @@
 const mongoose = require('../db/connection.js');
-const ObjectId = mongoose.Schema.Types.ObjectId;
-
-const LibrarySchema = mongoose.Schema({
-    name: String,
+const Schema = mongoose.Schema;
+///////////////////////////////////////////////////////
+const Library = new Schema({
+    userName: String,
     isActive: Boolean,
-    userId: ObjectId
+    userId: ObjectId,
+    rentedApi: [{
+        type: Schema.mongoose.ObjectId,
+        ref:'rentedApi'
+    }]
 })
-
-let LibraryCollection = mongoose.model("Library Account",LibrarySchema);
-
-function CreateLibraryAccounts(newLibraryAccount,userId){
-    newLibraryAccount.userId = userId;
-    return LibraryCollection.create(newLibraryAccount)
-}
-function getLibraryAccountsByUserId(uId) {
-    return LibraryCollection.find({ userId: uId});
-  }
-  function DisplayAllLibraryAccounts(allAccounts){
-      return allAccounts;
-  }
-
-  module.exports = {
-      CreateLibraryAccounts,
-      getLibraryAccountsByUserId,
-      DisplayAllLibraryAccounts
-
-      
-  }
+///////////////////////////////////////////////////////
+module.exports = mongoose.model('libraryApi',Library)
