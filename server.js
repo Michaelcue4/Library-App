@@ -30,23 +30,12 @@ const router = require('./routes/index')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
-app.use('/',router)
+app.use(express.static(__dirname + '/frontEnd'));
 app.set('view engine', 'hbs')
-
-// app.get('/', (req,res)=>{
-//     res.send("Helllo");
-// })
-
-// app.get('/Library', (req, res) => {
-//     mainUserApi.DisplayAllLibraryAccounts(req.body)
-//       .then(users => {
-//         res.render("/views/layout", { listOUsers: users })
-//       });
-//   });
-  
+app.use('/',router);
 
 //============Listenter=====================
-const port = process.env.PORT||3000
-app.listen(port,"0.0.0.0", function(){
+const PORT = process.env.PORT||3000
+app.listen(PORT, function(){
     console.log("Is working")
 })
