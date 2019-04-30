@@ -6,11 +6,11 @@ const Rented = new Schema({
         bookName: String,
         bookAuthor: String,
         genre: String
-    }],
-    onHoldApi:[{
-        type: Schema.Types.ObjectId,
-        ref: 'onHoldApi'
     }]
+    // onHoldApi:[{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'onHoldApi'
+    // }]
 })
 ////////////////////////////////////////////
 module.exports = mongoose.model('rentedApi',Rented)

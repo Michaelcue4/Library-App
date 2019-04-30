@@ -7,6 +7,10 @@ const Library = new Schema({
     rentedApi: [{
         type: Schema.Types.ObjectId,
         ref:'rentedApi'
+    }],
+    onHoldApi:[{
+        type: Schema.Types.ObjectId,
+        ref: 'onHoldApi'
     }]
 })
 ///////////////////////////////////////////////////////
