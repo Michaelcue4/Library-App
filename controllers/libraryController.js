@@ -8,6 +8,29 @@ const libraryController =
     }),
     new:(req,res)=>{
         res.render('library/new')
+    },
+    create:(req,res)=>{
+        Library.create({
+            userName:req.body.userName,
+            isActive:req.body.isActive
+        }).then(newlibrary=>{
+            res.redirect('/')
+        })
+    },
+    show:(req,res)=>{
+        
+    },
+    edit:(req,res)=>{
+
+    },
+    update:(req,res)=>{
+
+    },
+    delete:(req,res)=>{
+
+    },
+    removeBooks:(req,res)=>{
+
     }
 
 }
