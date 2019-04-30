@@ -4,7 +4,7 @@ const libraryController =
 {
     index:(req,res)=>
     Library.find({}).then(Library=>{
-        res.render
+        res.render('library/index',{library})
     })
 
 }

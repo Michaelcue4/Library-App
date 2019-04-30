@@ -4,4 +4,4 @@ const libraryController = require('../controllers/libraryController');
 const rentedController = require('../controllers/rentedController');
 const onHoldController = require('../controllers/onHoldController')
 //////////////////////////////////////////////////
-router.use(express.static('public'))
+router.use(express.static('frontEnd'))
