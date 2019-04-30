@@ -1,4 +1,4 @@
-const mongoose = require('./connection.js');
+const mongoose = require('../db/connection.js');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const LibrarySchema = mongoose.Schema({
