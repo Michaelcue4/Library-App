@@ -3,7 +3,6 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const LibrarySchema = mongoose.Schema({
     name: String,
-    BooksRented: Number,
     isActive: Boolean,
     userId: ObjectId
 })
@@ -17,9 +16,14 @@ function CreateLibraryAccounts(newLibraryAccount,userId){
 function getLibraryAccountsByUserId(uId) {
     return LibraryCollection.find({ userId: uId});
   }
+  function DisplayAllLibraryAccounts(allAccounts){
+      return allAccounts;
+  }
 
   module.exports = {
       CreateLibraryAccounts,
       getLibraryAccountsByUserId,
+      DisplayAllLibraryAccounts
+
       
   }

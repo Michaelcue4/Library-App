@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const logger = require('morgan')
-const mainUserApi = require('./api/mainUser.js')
+const mainUserApi = require('./api/libraryApi.js/index.js')
 const mongoose = require('mongoose');
 
 
@@ -35,12 +35,12 @@ app.get('/', (req,res)=>{
     res.send("Helllo");
 })
 
-app.get('/Library', (req, res) => {
-    mainuser.getAllLibraryUsers()
-      .then(users => {
-        res.render("users/users", { listOUsers: users })
-      });
-  });
+// app.get('/Library', (req, res) => {
+//     mainUserApi.DisplayAllLibraryAccounts(req.body)
+//       .then(users => {
+//         res.render("/views/layout", { listOUsers: users })
+//       });
+//   });
   
 
 //============Listenter=====================
