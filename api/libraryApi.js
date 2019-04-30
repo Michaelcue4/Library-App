@@ -4,9 +4,8 @@ const Schema = mongoose.Schema;
 const Library = new Schema({
     userName: String,
     isActive: Boolean,
-    userId: ObjectId,
     rentedApi: [{
-        type: Schema.mongoose.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:'rentedApi'
     }]
 })

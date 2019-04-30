@@ -8,7 +8,7 @@ const Rented = new Schema({
         genre: String
     }],
     onHoldApi:[{
-        type: Schema.mongoose.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'onHoldApi'
     }]
 })

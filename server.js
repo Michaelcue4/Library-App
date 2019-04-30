@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const logger = require('morgan')
-const mainUserApi = require('./api/libraryApi.js/index.js')
+const mainUserApi = require('./api/libraryApi.js')
 const mongoose = require('mongoose');
 
 
