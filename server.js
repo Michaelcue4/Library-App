@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const logger = require('morgan')
 const mainUserApi = require('./api/libraryApi.js')
 const mongoose = require('mongoose');
+const router = require('./routes/index')
 
 
   if (process.env.MONGODB_URI) {
@@ -29,11 +30,12 @@ const mongoose = require('mongoose');
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
+app.use('/',router)
 app.set('view engine', 'hbs')
 
-app.get('/', (req,res)=>{
-    res.send("Helllo");
-})
+// app.get('/', (req,res)=>{
+//     res.send("Helllo");
+// })
 
 // app.get('/Library', (req, res) => {
 //     mainUserApi.DisplayAllLibraryAccounts(req.body)
