@@ -20,13 +20,12 @@ const libraryController =
     },
     show:(req,res)=>{
         const libraryId = req.params.id 
-        Library.findById(libraryId).populate(librarianApi).then((library)=>{
-            const rented = Library.librarianApi
-            res.render('library')
+        Library.findById(libraryId).then((Singlelibrary)=>{
+            res.render('library/show',{Singlelibrary});
         })
     },
     edit:(req,res)=>{
-
+        
     },
     update:(req,res)=>{
 
