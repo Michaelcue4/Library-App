@@ -1,54 +1,37 @@
-const library = require('../api/libraryApi')
-const rented = require('../api/rentedApi')
-const onHold = require('../api/onHoldApi')
+const library = require('../api/libraryApi');
+const librarian = require('../api/librarianApi');
+const books = require('../api/bookApi');
+const mongoose = require('mongoose');
+///////////////////////////////////////
+(async () =>{
 
-const newonHold = new onHold ({
-    bookName: "The Thing",
-    bookAuthor: "Stephen King",
-    genre: "Fiction, Horror"
-})
-const newonHold1 = new onHold ({
-    bookName: "Pet Semetary",
-    bookAuthor: "Stephen King",
-    genre: "Fiction, Horror"
-})
-const newonHold2 = new onHold ({
-    bookName: "IT",
-    bookAuthor: "Stephen King",
-    genre: "Fiction, Horror"
-})
-const newrented = new rented({
-    bookName: "A Game of Thrones",
-    bookAuthor: "George R. Martin",
-    genre:"epic Fantasy",
-})
-const newrented1 = new rented({
-    bookName: "A Song of Ice and Fire",
-    bookAuthor: "George R. Martin",
-    genre:"epic Fantasy"
 
-})
-const newrented2 = new rented({
-    bookName: "A Dance with Dragons",
-    bookAuthor: "George R. Martin",
-    genre:"epic Fantasy"
+    const newbook = await new books ({
+        name: "The Thing",
+        author: "Stephen King",
+        genre: "Fiction, Horror"
+    }).save();
+    
+    const newbook1 = await new books ({
+        name: "Pet Semetary",
+        author: "Stephen King",
+        genre: "Fiction, Horror"
+    }).save();
+    const newbook2 = await new books ({
+        name: "IT",
+        author: "Stephen King",
+        genre: "Fiction, Horror"
+    }).save();
+    const Librarian = await new librarian({
+        name:"Noah"
+    }).save();
+    const newlibrary = await new library({
+        name:"Bright Falls Library",
+        books:[newbook,newbook1,newbook2],
+        librarian: this.librarian
+    }).save();
+    await mongoose.disconnect();
+})();
 
-})
-const newlibrary = new library({
-    userName:"Michael",
-    isActive: true,
-    onHoldApi:[newonHold],
-    rentedApi:[newrented]
-})
-const newlibrary1 = new library({
-    userName:"Michael Lawson",
-    isActive: true,
-    onHoldApi:[newonHold1],
-    rentedApi:[newrented1]
-})
-const newlibrary2 = new library({
-    userName:"Michael White",
-    isActive: true,
-    onHoldApi:[newonHold2],
-    rentedApi:[newrented2]
-})
+
+

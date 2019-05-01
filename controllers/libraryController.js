@@ -3,8 +3,8 @@ const Library = require('../api/libraryApi');
 const libraryController =
 {
     index:(req,res)=>
-    Library.find({}).then(library=>{
-        res.render('library/index',{library})
+    Library.find({}).then(libraryList=>{
+        res.render('library/index',{libraryList})
     }),
     new:(req,res)=>{
         res.render('library/new')
@@ -18,7 +18,11 @@ const libraryController =
         })
     },
     show:(req,res)=>{
-        
+        const libraryId = req.params.id 
+        Library.findById(libraryId).populate(rentedApi).then((library)=>{
+            const rented = Library.rentedApi
+            res.render('library')
+        })
     },
     edit:(req,res)=>{
 

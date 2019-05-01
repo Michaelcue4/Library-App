@@ -1,17 +1,16 @@
 const mongoose = require('../db/connection.js');
 const Schema = mongoose.Schema;
 ///////////////////////////////////////////////////////
-const Library = new Schema({
-    userName: String,
-    isActive: Boolean,
-    rentedApi: [{
+const library = new Schema({
+    name: String,
+    books: [{
         type: Schema.Types.ObjectId,
-        ref:'rentedApi'
+        ref:'Book'
     }],
-    onHoldApi:[{
+    librarian:{
         type: Schema.Types.ObjectId,
-        ref: 'onHoldApi'
-    }]
+        ref: 'Librarian'
+    }
 })
 ///////////////////////////////////////////////////////
-module.exports = mongoose.model('libraryApi',Library)
+module.exports = mongoose.model('Library',library)
