@@ -3,7 +3,7 @@ const Library = require('../api/libraryApi');
 const libraryController =
 {
     index:(req,res)=>
-    Library.find({}).then(libraryList=>{
+    Library.find().then(libraryList=>{
         console.log(libraryList);
         res.render('library/index',{libraryList})
     }),
