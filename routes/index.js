@@ -15,7 +15,8 @@ router.put('/:id', libraryController.update);
 router.delete('/:id', libraryController.delete);
 //////////-----Book Routes------------//////////////////////
 router.get('/:id/book', bookController.index);
+router.delete('/:id/book/:bookId',bookController.delete);
 ////////////-----Librarian Routes-----//////////////////////
 router.get('/:id/librarian',librarianController.index)
-
+router.delete('/:id')
 module.exports = router;

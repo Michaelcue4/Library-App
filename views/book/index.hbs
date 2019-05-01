@@ -1,8 +1,10 @@
 <h1>
     {{#each bookList}}
-    <p>{{name}}</p>
-    <p>{{author}}</p>
-    <p>{{genre}}</p>
+    <p>{{name}}
+       {{author}}
+       {{genre}}</p>
+       <form action="/{{../libraryId}}/book/{{_id}}?_method=DELETE" method="POST">
+			<input type="submit" value="Delete"></submit>
 
     {{/each}}
 </h1>

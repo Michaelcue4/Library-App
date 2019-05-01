@@ -4,8 +4,9 @@ const Library = require('../api/libraryApi')
 const bookController = {
 index:(req,res)=> {
     Book.find({}).then(bookList=>{
+        const libraryId = req.params.id
         console.log(bookList);
-        res.render('book/index',{bookList})
+        res.render('book/index',{bookList ,libraryId})
     })
 },
     new:(req,res)=>{
@@ -22,9 +23,23 @@ index:(req,res)=> {
             }).then(book =>{
                 library.books.push(bookList)
                 library.save()
-                res.redirect(`/${library.id}`)
+                res.redirect(`/${library._id}`)
             })
         })
+    },
+    delete: (req, res) => {
+        const libraryId = req.params.id
+        const bookId = req.params.bookId
+        Book.findByIdAndDelete(bookId)
+            .then(() => {
+                res.redirect(`/${libraryId}`)
+            })
     }
+    // delete: (req,res) =>{
+    //     Books.findById.delete(req.params.id)
+    //     .then(()=>{
+    //         res.redirect(`/${req.params.libraryId}`);
+    //     })
+    // }
 }
 module.exports = bookController;
