@@ -1,6 +1,11 @@
-<h1>
-    {{#each library}}
-    <a ref =
+<h1>List Of Lib
+    {{#each libraryList}}
+    <a href = "/{{_id}}">
+        <div>
+            {{name}}
+        </div>
+    </a>
     {{/each}}
+    <br>
+    <a href ="/new">Add New Library </a>
 </h1>
-

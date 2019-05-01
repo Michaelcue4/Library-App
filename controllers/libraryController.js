@@ -4,6 +4,7 @@ const libraryController =
 {
     index:(req,res)=>
     Library.find({}).then(libraryList=>{
+        console.log(libraryList);
         res.render('library/index',{libraryList})
     }),
     new:(req,res)=>{
@@ -19,8 +20,8 @@ const libraryController =
     },
     show:(req,res)=>{
         const libraryId = req.params.id 
-        Library.findById(libraryId).populate(rentedApi).then((library)=>{
-            const rented = Library.rentedApi
+        Library.findById(libraryId).populate(librarianApi).then((library)=>{
+            const rented = Library.librarianApi
             res.render('library')
         })
     },
@@ -31,7 +32,9 @@ const libraryController =
 
     },
     delete:(req,res)=>{
-
+        Library.deleteOne({"_id":req.params.id}).then(()=>{
+            res.redirect("/")
+        })
     },
     removeBooks:(req,res)=>{
 

@@ -7,6 +7,8 @@ const onHoldController = require('../controllers/onHoldController')
 //router.use(express.static('frontEnd'))
 ///////////////////////////////////////////////////
 router.get('/', libraryController.index)
-router.get('/',)
+router.get('/:id', libraryController.show);
 
+router.post('/', libraryController.create);
+router.delete('/:id', libraryController.delete);
 module.exports = router;
