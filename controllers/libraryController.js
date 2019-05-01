@@ -35,11 +35,7 @@ const libraryController =
         Library.deleteOne({"_id":req.params.id}).then(()=>{
             res.redirect("/")
         })
-    },
-    removeBooks:(req,res)=>{
-
     }
-
 }
 
 module.exports = libraryController;
