@@ -39,6 +39,10 @@ https://stark-island-56625.herokuapp.com/
 
 ![alttext](IMG_1356.JPG)
 
+#Next Version
 
+Add users 
+populate larger arrays
+provide pictures of the books and the location of the libraries 
 
 
