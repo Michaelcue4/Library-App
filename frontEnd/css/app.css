@@ -1,0 +1,19 @@
+body{
+    background-color: red;
+    font: white;
+    color: white;
+    font-size: 50px;
+    padding: 1px;
+    text-align: center;
+    background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=30&auto=format&w=600&h=400&fit=crop&dpr=2")
+}
+.Library-Container{
+    color: white;
+    background-color:gray;
+    text-align: center;
+    font-size: 30px;
+    display: inline-block;
+    border: solid white;
+    opacity: 1;
+
+}
