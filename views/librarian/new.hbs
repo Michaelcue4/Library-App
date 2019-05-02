@@ -1,12 +1,13 @@
 <h1>
-    Add new Librarian 
+    Add New Librarian
 </h1>
-<div id="edit-form" class="Library-Container">
+<div id="libClass" class="Library-Container">
 <br>
-<form action="/" method="POST">
-		<p>Name:</p>
-        <input type="text" name="name" />
-        <input type="submit" name="submitBtn" value="Name" />
+<form action="/{{libraryId}}/librarian" method="POST">
+		<p>Name</p>
+        <input type="text" name="name" />  
+        <button type="submit">add</button>
 </form>
 <br>
 </div>
+</h1>

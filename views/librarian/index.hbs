@@ -1,6 +1,11 @@
-<h1> Book Information </h1>
-<br>{{#each librarianList}}
-<p>
-    {{name}}
-</p>
-{{/each}}
+<h1> Librarian List </h1>
+<div>
+    {{#each librarians }}
+    <p>Name: {{name}}</p>
+    <a href="/{{../library._id}}/librarian/{{_id}}">View Librarian</a>
+    {{/each}}
+    <div>
+    <a href="/{{library._id}}/librarian/new"> Add New Librarian </a>
+    </div>
+    
+</div>

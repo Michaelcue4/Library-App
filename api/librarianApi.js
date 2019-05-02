@@ -1,8 +1,8 @@
 const mongoose = require('../db/connection.js');
 const Schema = mongoose.Schema;
 /////////////////////////////////////////
-const librarian = new Schema({
+const Librarians = new Schema({
     name: String
 })
 ////////////////////////////////////////////
-module.exports = mongoose.model('Librarian',librarian)
+module.exports = mongoose.model('Librarians',Librarians)

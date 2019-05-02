@@ -7,10 +7,10 @@ const Library = new Schema({
         type: Schema.Types.ObjectId,
         ref:'Books'
     }],
-    librarian:{
+    librarians:[{
         type: Schema.Types.ObjectId,
-        ref: 'Librarian'
-    }
+        ref: 'Librarians'
+    }]
 })
 ///////////////////////////////////////////////////////
 module.exports = mongoose.model('Library',Library)

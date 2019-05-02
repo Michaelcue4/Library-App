@@ -22,11 +22,11 @@ router.get('/:id/book/:bookId/edit',bookController.edit)
 router.put('/:id/book/:bookId',bookController.update)
 router.delete('/:id/book/:bookId/',bookController.delete);
 ////////////-----Librarian Routes-----//////////////////////
-// router.get('/:id/librarian',librarianController.index)
-// router.post('/:id/librarian',librarianController.create)
-// router.get(':id/librarian/new',librarianController.new)
-// router.get('/:id/librarian/:librarianId',librarianController.show)
-// router.get('/:id/librarian/:librarianId/edit',librarianController.edit)
-// router.put('/:id/librarian/:librarianId',librarianController.update)
-// router.delete('/:id/librarian/:librarianId',librarianController.delete)
+router.get('/:id/librarian',librarianController.index)
+router.post('/:id/librarian',librarianController.create)
+router.get('/:id/librarian/new',librarianController.new)
+router.get('/:id/librarian/:librarianId/',librarianController.show)
+router.get('/:id/librarian/:librarianId/edit/',librarianController.edit)
+router.put('/:id/librarian/:librarianId/',librarianController.update)
+router.delete('/:id/librarian/:librarianId/',librarianController.delete)
 module.exports = router;
