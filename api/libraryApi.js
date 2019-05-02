@@ -1,11 +1,11 @@
 const mongoose = require('../db/connection.js');
 const Schema = mongoose.Schema;
 ///////////////////////////////////////////////////////
-const library = new Schema({
+const Library = new Schema({
     name: String,
     books: [{
         type: Schema.Types.ObjectId,
-        ref:'Book'
+        ref:'Books'
     }],
     librarian:{
         type: Schema.Types.ObjectId,
@@ -13,4 +13,4 @@ const library = new Schema({
     }
 })
 ///////////////////////////////////////////////////////
-module.exports = mongoose.model('Library',library)
+module.exports = mongoose.model('Library',Library)

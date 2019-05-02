@@ -1,4 +1,4 @@
-const Library = require('../api/libraryApi')
+const library = require('../api/libraryApi')
 const Librarian = require('../api/librarianApi')
 
 const librarianController = {

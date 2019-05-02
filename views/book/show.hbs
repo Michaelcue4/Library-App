@@ -1,0 +1,21 @@
+<h2>Current Book:
+<br>
+    <p>{{book.name}}</p>
+    <p>{{book.author}}</p>
+    <p>{{book.genre}}</p>
+    <br>
+    <a href="/{{libraryId}}/book">View All Books</a>
+    <br>
+    <a href="/{{libraryId}}/librarian">View All Librarians</a>
+    <form action="/{{libraryId}}/book/{{book._id}}?_method=DELETE" method="POST">
+			<button type="submit">Delete</button>
+    </form>
+
+</h2>
+<br>
+<a href="/{{libraryId}}/edit">Edit Contents</a>
+<br>
+<form action="/{{libraryId}}?_method=DELETE" method="POST">
+			<input type="submit" value="Delete"></submit>
+</form>
+	<a href="/">Return to Home Page</a>

@@ -1,11 +1,12 @@
-<h1>
-    {{#each bookList}}
-    <p>{{name}}
-       {{author}}
-       {{genre}}</p>
-       <form action="/{{../libraryId}}/book/{{_id}}?_method=DELETE" method="POST">
-			<input type="submit" value="Delete"></submit>
-
+<div>
+    {{#each books}}
+    <p>Name: {{name}}</p>
+    <p>Author: {{author}}</p>
+    <p>Genre: {{genre}}</p>
+    <a href="/{{../library._id}}/book/{{_id}}">View book</a>
     {{/each}}
-    <a href="/{{libraryId}}/book/new"> Add New book </a>
-</h1>
+    <div>
+    <a href="/{{library._id}}/book/new"> Add New book </a>
+    </div>
+    
+</div>

@@ -1,12 +1,14 @@
-const Book = require('../api/bookApi')
+const Books = require('../api/bookApi')
 const Library = require('../api/libraryApi')
 
 const bookController = {
 index:(req,res)=> {
-    Book.find({}).then(bookList=>{
-        const libraryId = req.params.id
-        console.log(bookList);
-        res.render('book/index',{bookList ,libraryId})
+    const libraryId = req.params.id
+    Library.findById(libraryId).populate("books").then((library)=>{
+        const books = library.books
+        console.log(library)
+        console.log(books);
+        res.render('book/index',{books ,library})
         })
     },
     new:(req,res)=>{
@@ -17,7 +19,7 @@ index:(req,res)=> {
     create: (req,res)=>{
         const libraryId = req.params.id;
         Library.findById(libraryId).then((library)=>{
-            Book.create({
+            Books.create({
                 name:req.body.name,
                 author:req.body.author,
                 genre: req.body.genre
@@ -33,7 +35,7 @@ index:(req,res)=> {
     show:(req,res)=>{
         const libraryId = req.params.id
         const bookId = req.params.bookId
-        Book.findById(bookId).then((book)=>{
+        Books.findById(bookId).then((book)=>{
             res.render('book/show',{book,libraryId})
         })
     },
@@ -41,7 +43,7 @@ index:(req,res)=> {
     edit:(req,res)=>{
         const libraryId = req.params.id
         const bookId = req.params.bookId
-        Book.findById(bookId).then((book)=>{
+        Books.findById(bookId).then((book)=>{
             res.render('book/edit',{libraryId, bookId, book})
         })
     },
@@ -49,7 +51,7 @@ index:(req,res)=> {
     update:(req,res)=>{
         const libraryId = req.params.id
         const bookId = req.params.bookId
-        Book.findByIdAndUpdate(bookId,req.body,{new:true})
+        Books.findByIdAndUpdate(bookId,req.body,{new:true})
         .then((book)=>{
             res.redirect(`/${libraryId}`);
         })
@@ -58,9 +60,9 @@ index:(req,res)=> {
     delete: (req, res) => {
         const libraryId = req.params.id
         const bookId = req.params.bookId
-        Book.findByIdAndDelete(bookId)
+        Books.findByIdAndRemove(bookId)
             .then(() => {
-                res.redirect(`/${libraryId}`)
+                res.redirect(`/${libraryId}/book`)
             })
     }
 }
