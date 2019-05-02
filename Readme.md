@@ -31,4 +31,7 @@ https://stark-island-56625.herokuapp.com/
 #Trello Board 
 (https://trello.com/b/5pAYIgcA/project-2)
 
+#WhiteBoarding
+![alttext](IMG_1356.JPG)
+![alttext](IMG_1356.JPG)
 
