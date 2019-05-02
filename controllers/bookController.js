@@ -7,12 +7,13 @@ index:(req,res)=> {
         const libraryId = req.params.id
         console.log(bookList);
         res.render('book/index',{bookList ,libraryId})
-    })
-},
+        })
+    },
     new:(req,res)=>{
-        const libraryId = req.params.index;
+        const libraryId = req.params.id;
         res.render('book/new',{libraryId});
     },
+
     create: (req,res)=>{
         const libraryId = req.params.id;
         Library.findById(libraryId).then((library)=>{
@@ -21,12 +22,39 @@ index:(req,res)=> {
                 author:req.body.author,
                 genre: req.body.genre
             }).then(book =>{
-                library.books.push(bookList)
+                console.log(book)
+                library.books.push(book)
                 library.save()
-                res.redirect(`/${library._id}`)
+                res.redirect(`/${libraryId}`)
             })
         })
     },
+
+    show:(req,res)=>{
+        const libraryId = req.params.id
+        const bookId = req.params.bookId
+        Book.findById(bookId).then((book)=>{
+            res.render('book/show',{book,libraryId})
+        })
+    },
+
+    edit:(req,res)=>{
+        const libraryId = req.params.id
+        const bookId = req.params.bookId
+        Book.findById(bookId).then((book)=>{
+            res.render('book/edit',{libraryId, bookId, book})
+        })
+    },
+
+    update:(req,res)=>{
+        const libraryId = req.params.id
+        const bookId = req.params.bookId
+        Book.findByIdAndUpdate(bookId,req.body,{new:true})
+        .then((book)=>{
+            res.redirect(`/${libraryId}`);
+        })
+    },
+
     delete: (req, res) => {
         const libraryId = req.params.id
         const bookId = req.params.bookId
@@ -35,11 +63,5 @@ index:(req,res)=> {
                 res.redirect(`/${libraryId}`)
             })
     }
-    // delete: (req,res) =>{
-    //     Books.findById.delete(req.params.id)
-    //     .then(()=>{
-    //         res.redirect(`/${req.params.libraryId}`);
-    //     })
-    // }
 }
 module.exports = bookController;
