@@ -41,8 +41,8 @@ https://stark-island-56625.herokuapp.com/
 
 #Next Version
 
-Add users 
-populate larger arrays
+Add users ,
+populate larger arrays,
 provide pictures of the books and the location of the libraries 
 
 
